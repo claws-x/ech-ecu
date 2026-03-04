@@ -11,27 +11,12 @@
 
 | ID | 任务名称 | 路径 | 开始时间 | 完成时间 | 状态 |
 |----|----------|------|----------|----------|------|
-| T1 | PID 服务头文件 | `src/services/ech_pid.h` | 07:21 | 07:25 | ✅ 已完成 |
-| T2 | PID 服务实现 | `src/services/ech_pid.c` | 07:25 | 07:28 | ✅ 已完成 |
-| T3 | PID 单元测试 | `src/services/ech_pid.c (UNIT_TEST)` | 07:28 | 07:30 | ✅ 5/5 通过 |
-| T4 | README.md 更新 | `README.md` | 07:30 | 07:32 | ✅ 已完成 |
-| T5 | HEARTBEAT.md 更新 | `HEARTBEAT.md` | 07:32 | 07:33 | ✅ 已完成 |
-| T6 | ADC 驱动头文件 | `src/drivers/ech_adc.h` | 08:30 | 08:32 | ✅ 已完成 |
-| T7 | ADC 驱动实现 | `src/drivers/ech_adc.c` | 08:32 | 08:34 | ✅ 已完成 |
-| T8 | ADC 单元测试 | `src/drivers/ech_adc.c (UNIT_TEST)` | 08:34 | 08:35 | ✅ 6/6 通过 |
-| T9 | 文档更新 | `README.md + HEARTBEAT.md` | 08:35 | 08:38 | ✅ 已完成 |
-| T10 | 状态管理头文件 | `src/app/ech_state.h` | 10:30 | 10:35 | ✅ 已完成 |
-| T11 | 状态管理实现 | `src/app/ech_state.c` | 10:35 | 10:50 | ✅ 已完成 |
-| T12 | 状态管理单元测试 | `src/app/ech_state.c (UNIT_TEST)` | 10:50 | 11:00 | ✅ 6/6 通过 |
-| T13 | 文档更新 | `README.md + HEARTBEAT.md` | 11:00 | 11:05 | ✅ 已完成 |
-| T14 | LIN 驱动头文件 | `src/drivers/ech_lin.h` | 12:25 | 12:30 | ✅ 已完成 |
-| T15 | LIN 驱动实现 | `src/drivers/ech_lin.c` | 12:30 | 12:40 | ✅ 已完成 |
-| T16 | LIN 单元测试 | `src/drivers/ech_lin.c (UNIT_TEST)` | 12:40 | 12:45 | ✅ 6/6 通过 |
-| T17 | 文档更新 | `README.md + HEARTBEAT.md` | 12:45 | 12:50 | ✅ 已完成 |
-| T18 | 看门狗头文件 | `src/services/ech_watchdog.h` | 13:25 | 13:30 | ✅ 已完成 |
-| T19 | 看门狗实现 | `src/services/ech_watchdog.c` | 13:30 | 13:40 | ✅ 已完成 |
-| T20 | 看门狗单元测试 | `src/services/ech_watchdog.c (UNIT_TEST)` | 13:40 | 13:45 | ✅ 6/6 通过 |
-| T21 | 文档更新 | `README.md + HEARTBEAT.md` | 13:45 | 13:50 | ✅ 已完成 |
+| T1-T21 | 详见上文 | - | - | - | ✅ 已完成 |
+| T22 | 诊断头文件 | `src/services/ech_diag.h` | 19:30 | 19:35 | ✅ 已完成 |
+| T23 | 诊断实现 | `src/services/ech_diag.c` | 19:35 | 19:50 | ✅ 已完成 |
+| T24 | 诊断单元测试 | `src/services/ech_diag.c (UNIT_TEST)` | 19:50 | 20:00 | ✅ 4/4 通过 |
+| T25 | 文档更新 | `README.md + HEARTBEAT.md` | 20:00 | 20:05 | ✅ 已完成 |
+| T26 | Git 提交推送 | `GitHub: claws-x/ech-ecu` | 20:15 | 20:15 | ✅ v0.8 |
 
 ---
 
