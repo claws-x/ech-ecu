@@ -17,6 +17,9 @@
 | T24 | 诊断单元测试 | `src/services/ech_diag.c (UNIT_TEST)` | 19:50 | 20:00 | ✅ 4/4 通过 |
 | T25 | 文档更新 | `README.md + HEARTBEAT.md` | 20:00 | 20:05 | ✅ 已完成 |
 | T26 | Git 提交推送 | `GitHub: claws-x/ech-ecu` | 20:15 | 20:15 | ✅ v0.8 |
+| T27 | 主程序框架 | `src/app/ech_main.c` | 20:21 | 20:25 | ✅ 已完成 |
+| T28 | 编译运行验证 | `./ech_main` | 20:25 | 20:30 | ✅ 运行正常 |
+| T29 | Git 提交推送 | `GitHub: claws-x/ech-ecu` | 20:30 | 20:31 | ✅ v0.9 |
 
 ---
 

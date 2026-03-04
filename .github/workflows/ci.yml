@@ -1,0 +1,72 @@
+name: ECH ECU CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install ARM GCC
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
+    
+    - name: Build
+      run: |
+        chmod +x scripts/build.sh
+        ./scripts/build.sh
+    
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ech-main
+        path: build/
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Run Tests
+      run: |
+        chmod +x scripts/test.sh
+        ./scripts/test.sh
+    
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: docs/process-reports/
+
+  static-analysis:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Cppcheck
+      run: |
+        sudo apt-get install -y cppcheck
+        cppcheck --enable=all --std=c99 src/
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [ build, test, static-analysis ]
+    if: github.event_name == 'release'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Create Release Notes
+      run: |
+        echo "Release ${{ github.ref_name }}"
+        # 自动生成发布说明
