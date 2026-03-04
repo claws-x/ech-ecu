@@ -41,8 +41,7 @@ echo "📦 编译源文件..."
 # 构建所有子目录的包含路径
 INCLUDES="-I$SRC_DIR -I$SRC_DIR/drivers -I$SRC_DIR/services -I$SRC_DIR/app -I$SRC_DIR/platform"
 
-# 排除有问题的文件（待修复）
-find "$SRC_DIR" -name "*.c" ! -name "ech_temp_ctrl.c" | while read -r src; do
+find "$SRC_DIR" -name "*.c" | while read -r src; do
     obj="${src/$SRC_DIR/$BUILD_DIR}.o"
     mkdir -p "$(dirname "$obj")"
     echo "  → $src"

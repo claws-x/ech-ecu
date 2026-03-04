@@ -1,0 +1,380 @@
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:10:2: warning: Include file: "ech_pid.h" not found. [missingInclude]
+#include "ech_pid.h"
+ ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:11:2: warning: Include file: "ech_pwm.h" not found. [missingInclude]
+#include "ech_pwm.h"
+ ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:0:0: warning: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:0:0: warning: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:201:14: warning: Condition 'result==0' is always true [knownConditionTrueFalse]
+  if (result == 0) {
+             ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:199:32: note: Calling function 'HardwareSend' returns 0
+  int32_t result = HardwareSend(txBuffer, 2 + frame->length + 1);
+                               ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:199:32: note: Assignment 'result=HardwareSend(txBuffer,2+frame->length+1)', assigned value is 0
+  int32_t result = HardwareSend(txBuffer, 2 + frame->length + 1);
+                               ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:201:14: note: Condition 'result==0' is always true
+  if (result == 0) {
+             ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:135:21: warning: Variable 'controller->state' is reassigned a value before the old one has been used. [redundantAssignment]
+  controller->state = ECH_LIN_STATE_ACTIVE;
+                    ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:114:21: note: controller->state is assigned
+  controller->state = ECH_LIN_STATE_INIT;
+                    ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:135:21: note: controller->state is overwritten
+  controller->state = ECH_LIN_STATE_ACTIVE;
+                    ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:539:11: warning: Variable 'data' can be declared as const array [constVariable]
+  uint8_t data[] = {0x01, 0x02, 0x03, 0x04};
+          ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:257:25: warning: Assigned value 'PWM_Init(NULL)' is always false [knownConditionTrueFalse]
+  bool result = PWM_Init(NULL);
+                        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:257:25: note: Calling function 'PWM_Init' returns 0
+  bool result = PWM_Init(NULL);
+                        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:257:25: note: Assigned value 'PWM_Init(NULL)' is always false
+  bool result = PWM_Init(NULL);
+                        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:377:46: warning: Parameter 'controller' can be declared as pointer to const [constParameterPointer]
+int32_t EchDiag_ReadDid(EchDiagController_t *controller, uint16_t didId,
+                                             ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:611:11: warning: Variable 'freezeFrame' can be declared as const array [constVariable]
+  uint8_t freezeFrame[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+          ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:663:11: warning: Variable 'request' can be declared as const array [constVariable]
+  uint8_t request[] = {0x10, 0x01}; /* SID=0x10, SubFunction=Programming */
+          ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:673:11: warning: Variable 'request2' can be declared as const array [constVariable]
+  uint8_t request2[] = {0x22, 0xF1, 0x00}; /* SID=0x22, DID=0xF100 */
+          ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:691:11: warning: Variable 'request' can be declared as const array [constVariable]
+  uint8_t request[] = {0x10, 0x01};
+          ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:247:47: warning: Parameter 'controller' can be declared as pointer to const [constParameterPointer]
+void EchPid_GetDiagnostic(EchPidController_t *controller,
+                                              ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:0:0: warning: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_main.c:464:6: warning: The function 'EchMain_GetVersion' is never used. [unusedFunction]
+void EchMain_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:288:1: warning: The function 'EchState_GetCurrentSubState' is never used. [unusedFunction]
+EchState_GetCurrentSubState(const EchStateController_t *controller) {
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:322:16: warning: The function 'EchState_GetActiveFault' is never used. [unusedFunction]
+EchFaultType_t EchState_GetActiveFault(const EchStateController_t *controller) {
+               ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:372:6: warning: The function 'EchState_Reset' is never used. [unusedFunction]
+void EchState_Reset(EchStateController_t *controller) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:389:6: warning: The function 'EchState_GetVersion' is never used. [unusedFunction]
+void EchState_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:280:6: warning: The function 'EchTempCtrl_UT_RunAll' is never used. [unusedFunction]
+void EchTempCtrl_UT_RunAll(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:130:9: warning: The function 'EchAdc_ConfigureChannel' is never used. [unusedFunction]
+int32_t EchAdc_ConfigureChannel(EchAdcController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:251:1: warning: The function 'EchAdc_GetEngineeredData' is never used. [unusedFunction]
+EchAdc_GetEngineeredData(const EchAdcController_t *controller,
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:348:6: warning: The function 'EchAdc_Reset' is never used. [unusedFunction]
+void EchAdc_Reset(EchAdcController_t *controller) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:376:6: warning: The function 'EchAdc_GetVersion' is never used. [unusedFunction]
+void EchAdc_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:281:9: warning: The function 'EchLin_SendStatus' is never used. [unusedFunction]
+int32_t EchLin_SendStatus(EchLinController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:301:9: warning: The function 'EchLin_ReceiveCommand' is never used. [unusedFunction]
+int32_t EchLin_ReceiveCommand(EchLinController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:362:15: warning: The function 'EchLin_GetState' is never used. [unusedFunction]
+EchLinState_t EchLin_GetState(const EchLinController_t *controller) {
+              ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:391:6: warning: The function 'EchLin_ClearError' is never used. [unusedFunction]
+void EchLin_ClearError(EchLinController_t *controller) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:434:6: warning: The function 'EchLin_GetVersion' is never used. [unusedFunction]
+void EchLin_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:462:16: warning: The function 'HardwareReceive' is never used. [unusedFunction]
+static int32_t HardwareReceive(uint8_t *data, uint8_t *length) {
+               ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:129:7: warning: The function 'PWM_GetDuty' is never used. [unusedFunction]
+float PWM_GetDuty(void) { return g_current_duty; }
+      ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:131:6: warning: The function 'PWM_Disable' is never used. [unusedFunction]
+void PWM_Disable(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:142:6: warning: The function 'PWM_Enable' is never used. [unusedFunction]
+void PWM_Enable(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:264:6: warning: The function 'PWM_UT_RunAll' is never used. [unusedFunction]
+void PWM_UT_RunAll(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:329:9: warning: The function 'EchDiag_GetAllDtcList' is never used. [unusedFunction]
+uint8_t EchDiag_GetAllDtcList(const EchDiagController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:431:6: warning: The function 'EchDiag_GetVersion' is never used. [unusedFunction]
+void EchDiag_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:658:6: warning: The function 'test_diag_uds_request' is never used. [unusedFunction]
+void test_diag_uds_request(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:683:6: warning: The function 'test_diag_statistics' is never used. [unusedFunction]
+void test_diag_statistics(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:203:6: warning: The function 'EchPid_SetSetpoint' is never used. [unusedFunction]
+void EchPid_SetSetpoint(EchPidController_t *controller, float setpoint) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:215:6: warning: The function 'EchPid_Tune' is never used. [unusedFunction]
+void EchPid_Tune(EchPidController_t *controller, float kp, float ki, float kd) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:229:6: warning: The function 'EchPid_Reset' is never used. [unusedFunction]
+void EchPid_Reset(EchPidController_t *controller) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:266:6: warning: The function 'EchPid_GetVersion' is never used. [unusedFunction]
+void EchPid_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:311:15: warning: The function 'EchWdg_GetState' is never used. [unusedFunction]
+EchWdgState_t EchWdg_GetState(const EchWdgController_t *controller) {
+              ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:359:9: warning: The function 'EchWdg_Reset' is never used. [unusedFunction]
+int32_t EchWdg_Reset(EchWdgController_t *controller) {
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:427:6: warning: The function 'EchWdg_GetVersion' is never used. [unusedFunction]
+void EchWdg_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:246:9: warning: The function 'EchState_ClearFault' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchState_ClearFault(EchStateController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:299:6: warning: The function 'EchState_IsSystemReady' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+bool EchState_IsSystemReady(const EchStateController_t *controller) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:334:1: warning: The function 'EchState_GetFaultHistory' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+EchState_GetFaultHistory(const EchStateController_t *controller,
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:603:6: warning: The function 'test_state_init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_state_init(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:621:6: warning: The function 'test_state_transition' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_state_transition(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:662:6: warning: The function 'test_state_fault_reporting' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_state_fault_reporting(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:688:6: warning: The function 'test_state_fault_history' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_state_fault_history(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:710:6: warning: The function 'test_state_helper_functions' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_state_helper_functions(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_state.c:734:6: warning: The function 'test_state_substates' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_state_substates(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:66:9: warning: The function 'EchTempCtrl_Init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchTempCtrl_Init(const EchTempCtrlConfig_t *config) {
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:89:7: warning: The function 'EchTempCtrl_Update' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+float EchTempCtrl_Update(float currentTemp, float targetTemp,
+      ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:171:6: warning: The function 'EchTempCtrl_GetVersion' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchTempCtrl_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:221:6: warning: The function 'EchTempCtrl_UT_Init_DefaultConfig' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchTempCtrl_UT_Init_DefaultConfig(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:230:6: warning: The function 'EchTempCtrl_UT_Update_NormalHeating' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchTempCtrl_UT_Update_NormalHeating(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:245:6: warning: The function 'EchTempCtrl_UT_Update_OverTempCutoff' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchTempCtrl_UT_Update_OverTempCutoff(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:257:6: warning: The function 'EchTempCtrl_UT_Update_TargetReached' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchTempCtrl_UT_Update_TargetReached(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/app/ech_temp_ctrl.c:269:6: warning: The function 'EchTempCtrl_UT_GetVersion' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchTempCtrl_UT_GetVersion(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:238:10: warning: The function 'EchAdc_GetRawValue' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+uint16_t EchAdc_GetRawValue(const EchAdcController_t *controller,
+         ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:288:7: warning: The function 'EchAdc_GetVoltage' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+float EchAdc_GetVoltage(const EchAdcController_t *controller,
+      ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:304:7: warning: The function 'EchAdc_GetCurrent' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+float EchAdc_GetCurrent(const EchAdcController_t *controller,
+      ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:332:9: warning: The function 'EchAdc_SetCalibration' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchAdc_SetCalibration(EchAdcController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:515:6: warning: The function 'test_adc_init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_adc_init(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:527:6: warning: The function 'test_adc_temperature_conversion' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_adc_temperature_conversion(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:547:6: warning: The function 'test_adc_filter' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_adc_filter(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:570:6: warning: The function 'test_adc_fault_detection' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_adc_fault_detection(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:598:6: warning: The function 'test_adc_calibration' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_adc_calibration(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_adc.c:625:6: warning: The function 'test_adc_voltage_current' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_adc_voltage_current(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:172:9: warning: The function 'EchLin_SendFrame' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchLin_SendFrame(EchLinController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:218:9: warning: The function 'EchLin_ReceiveFrame' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchLin_ReceiveFrame(EchLinController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:321:9: warning: The function 'EchLin_EnterSleep' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchLin_EnterSleep(EchLinController_t *controller) {
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:339:9: warning: The function 'EchLin_WakeUp' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchLin_WakeUp(EchLinController_t *controller, uint32_t timestamp_ms) {
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:373:6: warning: The function 'EchLin_GetDiagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchLin_GetDiagnostic(const EchLinController_t *controller,
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:412:9: warning: The function 'EchLin_CalculateChecksum' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+uint8_t EchLin_CalculateChecksum(const uint8_t *data, uint8_t length,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:522:6: warning: The function 'test_lin_init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_lin_init(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:537:6: warning: The function 'test_lin_checksum' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_lin_checksum(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:564:6: warning: The function 'test_lin_heartbeat' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_lin_heartbeat(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:583:6: warning: The function 'test_lin_schedule' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_lin_schedule(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:601:6: warning: The function 'test_lin_sleep_wakeup' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_lin_sleep_wakeup(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:622:6: warning: The function 'test_lin_diagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_lin_diagnostic(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:69:6: warning: The function 'PWM_Init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+bool PWM_Init(const PWM_Config_t *config) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:205:6: warning: The function 'PWM_UT_Init_ValidConfig' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void PWM_UT_Init_ValidConfig(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:216:6: warning: The function 'PWM_UT_SetDuty_NormalRange' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void PWM_UT_SetDuty_NormalRange(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:239:6: warning: The function 'PWM_UT_SetDuty_Clamping' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void PWM_UT_SetDuty_Clamping(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:256:6: warning: The function 'PWM_UT_Init_NullConfig' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void PWM_UT_Init_NullConfig(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:160:9: warning: The function 'EchDiag_ProcessRequest' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchDiag_ProcessRequest(EchDiagController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:222:9: warning: The function 'EchDiag_SetDtc' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchDiag_SetDtc(EchDiagController_t *controller, EchDtcCode_t dtcCode,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:269:9: warning: The function 'EchDiag_ClearDtc' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchDiag_ClearDtc(EchDiagController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:302:9: warning: The function 'EchDiag_ClearAllDtc' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchDiag_ClearAllDtc(EchDiagController_t *controller) {
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:317:1: warning: The function 'EchDiag_GetDtcRecord' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+EchDiag_GetDtcRecord(const EchDiagController_t *controller,
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:348:9: warning: The function 'EchDiag_ChangeSession' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchDiag_ChangeSession(EchDiagController_t *controller,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:366:1: warning: The function 'EchDiag_GetCurrentSession' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+EchDiag_GetCurrentSession(const EchDiagController_t *controller) {
+^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:377:9: warning: The function 'EchDiag_ReadDid' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchDiag_ReadDid(EchDiagController_t *controller, uint16_t didId,
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:413:6: warning: The function 'EchDiag_GetDiagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchDiag_GetDiagnostic(const EchDiagController_t *controller,
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:588:6: warning: The function 'test_diag_init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_diag_init(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:607:6: warning: The function 'test_diag_dtc_management' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_diag_dtc_management(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:626:6: warning: The function 'test_diag_session_control' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_diag_session_control(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:642:6: warning: The function 'test_diag_read_did' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_diag_read_did(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:184:6: warning: The function 'EchPid_SetEnabled' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchPid_SetEnabled(EchPidController_t *controller, bool enable) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:247:6: warning: The function 'EchPid_GetDiagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchPid_GetDiagnostic(EchPidController_t *controller,
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:317:6: warning: The function 'test_pid_init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_pid_init(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:333:6: warning: The function 'test_pid_calculate' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_pid_calculate(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:358:6: warning: The function 'test_pid_deadband' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_pid_deadband(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:379:6: warning: The function 'test_pid_enabled_disable' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_pid_enabled_disable(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:403:6: warning: The function 'test_pid_diagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_pid_diagnostic(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:158:9: warning: The function 'EchWdg_Update' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+int32_t EchWdg_Update(EchWdgController_t *controller, uint32_t timestamp_ms) {
+        ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:322:10: warning: The function 'EchWdg_GetTimeToTimeout' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+uint32_t EchWdg_GetTimeToTimeout(const EchWdgController_t *controller,
+         ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:338:6: warning: The function 'EchWdg_GetDiagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void EchWdg_GetDiagnostic(const EchWdgController_t *controller,
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:479:6: warning: The function 'test_wdg_init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_wdg_init(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:496:6: warning: The function 'test_wdg_start_stop' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_wdg_start_stop(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:517:6: warning: The function 'test_wdg_feed' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_wdg_feed(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:537:6: warning: The function 'test_wdg_timeout' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_wdg_timeout(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:557:6: warning: The function 'test_wdg_task_management' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_wdg_task_management(void) {
+     ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:581:6: warning: The function 'test_wdg_diagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+void test_wdg_diagnostic(void) {
+     ^
+nofile:0:0: warning: Active checkers: 113/186 (use --checkers-report=<filename> to see details) [checkersReport]
+

@@ -10,24 +10,25 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 /* 温度控制配置 */
 typedef struct {
-    float targetTemp;
-    float hysteresis;
-    bool enabled;
+  float targetTemp;
+  float hysteresis;
+  bool enabled;
 } EchTempCtrlConfig_t;
 
 /* 初始化温度控制 */
-int32_t EchTempCtrl_Init(const EchTempCtrlConfig_t* config);
+int32_t EchTempCtrl_Init(const EchTempCtrlConfig_t *config);
 
 /* 更新温度控制 */
-float EchTempCtrl_Update(float currentTemp, float targetTemp, uint32_t timestamp_ms);
+float EchTempCtrl_Update(float currentTemp, float targetTemp,
+                         uint32_t timestamp_ms);
 
 /* 获取版本 */
-void EchTempCtrl_GetVersion(uint8_t* major, uint8_t* minor, uint8_t* patch);
+void EchTempCtrl_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch);
 
 #ifdef __cplusplus
 }

@@ -42,7 +42,7 @@ if command -v cppcheck &> /dev/null; then
         --std=c99 \
         --platform=unix64 \
         --suppress=missingIncludeSystem \
-        --output-format=gcc \
+        --template=gcc \
         -i"$PROJECT_ROOT/build" \
         "$SRC_DIR" \
         2> "$CPPCHECK_REPORT" || true

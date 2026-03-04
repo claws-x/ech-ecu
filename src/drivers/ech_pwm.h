@@ -9,8 +9,8 @@
 #ifndef ECH_PWM_H
 #define ECH_PWM_H
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -24,8 +24,8 @@ extern "C" {
  * @brief PWM 初始化配置结构
  */
 typedef struct {
-    uint32_t frequency_hz;  ///< PWM 频率 (Hz)，推荐 20000
-    uint8_t channel;        ///< PWM 通道号 (0-3)
+  uint32_t frequency_hz; ///< PWM 频率 (Hz)，推荐 20000
+  uint8_t channel;       ///< PWM 通道号 (0-3)
 } PWM_Config_t;
 
 /*============================================================================
@@ -36,17 +36,17 @@ typedef struct {
  * @brief 初始化 PWM 驱动
  * @param config PWM 配置参数
  * @return true 成功，false 失败
- * 
+ *
  * @pre 系统时钟已初始化
  * @post PWM 模块处于禁用状态，占空比为 0%
  */
-bool PWM_Init(const PWM_Config_t* config);
+bool PWM_Init(const PWM_Config_t *config);
 
 /**
  * @brief 设置 PWM 占空比
  * @param duty_percent 占空比百分比 (0.0 - 100.0)
  * @return true 成功，false 失败
- * 
+ *
  * @note 超出范围的值会被自动钳位到 0-100
  */
 bool PWM_SetDuty(float duty_percent);
@@ -59,14 +59,14 @@ float PWM_GetDuty(void);
 
 /**
  * @brief 禁用 PWM 输出
- * 
+ *
  * @note 禁用后 PWM 引脚输出低电平
  */
 void PWM_Disable(void);
 
 /**
  * @brief 启用 PWM 输出
- * 
+ *
  * @pre PWM_Init 已成功调用
  */
 void PWM_Enable(void);
