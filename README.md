@@ -1,10 +1,10 @@
 # ECH 水加热器 ECU 控制系统
 
-**项目版本**: 0.7  
+**项目版本**: 0.8  
 **创建日期**: 2026-03-02  
 **ASPICE 目标**: CL2  
 **项目状态**: 单元实现阶段  
-**最后更新**: 2026-03-04 13:45
+**最后更新**: 2026-03-04 20:00
 
 ---
 
@@ -102,12 +102,13 @@ ech-ecu/
 | **状态管理** | `src/app/ech_state.c/.h` | 系统状态机 + 故障管理 | ✅ 6 项测试通过 |
 | **LIN 驱动** | `src/drivers/ech_lin.c/.h` | LIN 2.1 主站通信 (19.2kbps) | ✅ 6 项测试通过 |
 | **看门狗服务** | `src/services/ech_watchdog.c/.h` | 看门狗管理 + 系统健康监控 | ✅ 6 项测试通过 |
+| **诊断服务** | `src/services/ech_diag.c/.h` | UDS 诊断 + DTC 故障码管理 | ✅ 4 项测试通过 |
 
 ### 4.2 待开发模块
 
 | 模块 | 路径 | 功能 | 优先级 |
 |------|------|------|--------|
-| 诊断服务 | `src/services/ech_diag.c/.h` | 故障诊断 + DTC | 中 |
+| 主程序框架 | `src/app/ech_main.c` | 主程序入口 + 任务调度 | 低 |
 
 ---
 
@@ -175,8 +176,8 @@ cat docs/process/ASPICE_Gap_Analysis.md
 | SYS.4/5 系统测试 | ✅ 已规划 | System_Test_Plan.md |
 | SWE.1 软件需求 | ✅ 满足 | SRSW_ECH.md |
 | SWE.2 软件架构 | ✅ 满足 | SW_Architecture_ECH.md |
-| SWE.3 详细设计 | ✅ 满足 | ech_adc.c + ech_pid.c + ech_state.c + ech_lin.c + ech_watchdog.c |
-| SWE.4 单元测试 | ✅ 满足 | 29 项测试通过 (PID:5 + ADC:6 + State:6 + LIN:6 + WDG:6) |
+| SWE.3 详细设计 | ✅ 满足 | ech_adc.c + ech_pid.c + ech_state.c + ech_lin.c + ech_watchdog.c + ech_diag.c |
+| SWE.4 单元测试 | ✅ 满足 | 33 项测试通过 (PID:5 + ADC:6 + State:6 + LIN:6 + WDG:6 + Diag:4) |
 | SUP.1 质量保证 | ✅ 满足 | Quality_Assurance_Plan.md |
 | SUP.8 配置管理 | ✅ 满足 | Configuration_Management_Plan.md |
 
@@ -204,7 +205,8 @@ cat docs/process/ASPICE_Gap_Analysis.md
 3. [x] **状态管理** (`src/app/ech_state.c`) ✅ 2026-03-04 11:00 完成
 4. [x] **LIN 驱动** (`src/drivers/ech_lin.c`) ✅ 2026-03-04 12:45 完成
 5. [x] **看门狗服务** (`src/services/ech_watchdog.c`) ✅ 2026-03-04 13:45 完成
-6. [ ] 主程序框架 (`src/app/ech_main.c`)
+6. [x] **诊断服务** (`src/services/ech_diag.c`) ✅ 2026-03-04 20:00 完成
+7. [ ] 主程序框架 (`src/app/ech_main.c`)
 
 ---
 
