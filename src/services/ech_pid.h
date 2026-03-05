@@ -245,7 +245,7 @@ void EchPid_Reset(EchPidController_t *controller);
  * @details
  * 用于外部监控和诊断，支持 UDS 服务读取。
  */
-void EchPid_GetDiagnostic(EchPidController_t *controller,
+void EchPid_GetDiagnostic(const EchPidController_t *controller,
                           EchPidDiagnostic_t *diagnostic);
 
 /**

@@ -244,7 +244,7 @@ EchDiag_GetCurrentSession(const EchDiagController_t *controller);
 /**
  * @brief 读取数据标识符 (DID)
  */
-int32_t EchDiag_ReadDid(EchDiagController_t *controller, uint16_t didId,
+int32_t EchDiag_ReadDid(const EchDiagController_t *controller, uint16_t didId,
                         uint8_t *data, uint16_t *dataLength);
 
 /**

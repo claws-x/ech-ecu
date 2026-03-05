@@ -31,9 +31,6 @@
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:135:21: note: controller->state is overwritten
   controller->state = ECH_LIN_STATE_ACTIVE; /* 从 INIT 转换到 ACTIVE */
                     ^
-/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_lin.c:556:11: warning: Variable 'data' can be declared as const array [constVariable]
-  uint8_t data[] = {0x01, 0x02, 0x03, 0x04};
-          ^
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:257:25: warning: Assigned value 'PWM_Init(NULL)' is always false [knownConditionTrueFalse]
   bool result = PWM_Init(NULL);
                         ^
@@ -43,24 +40,9 @@
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/drivers/ech_pwm.c:257:25: note: Assigned value 'PWM_Init(NULL)' is always false
   bool result = PWM_Init(NULL);
                         ^
-/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:377:46: warning: Parameter 'controller' can be declared as pointer to const [constParameterPointer]
-int32_t EchDiag_ReadDid(EchDiagController_t *controller, uint16_t didId,
-                                             ^
-/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:611:11: warning: Variable 'freezeFrame' can be declared as const array [constVariable]
-  uint8_t freezeFrame[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
-          ^
-/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:663:11: warning: Variable 'request' can be declared as const array [constVariable]
-  uint8_t request[] = {0x10, 0x01}; /* SID=0x10, SubFunction=Programming */
-          ^
-/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:673:11: warning: Variable 'request2' can be declared as const array [constVariable]
-  uint8_t request2[] = {0x22, 0xF1, 0x00}; /* SID=0x22, DID=0xF100 */
-          ^
-/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:691:11: warning: Variable 'request' can be declared as const array [constVariable]
-  uint8_t request[] = {0x10, 0x01};
-          ^
-/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:247:47: warning: Parameter 'controller' can be declared as pointer to const [constParameterPointer]
-void EchPid_GetDiagnostic(EchPidController_t *controller,
-                                              ^
+/Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:557:52: warning: Parameter 'controller' can be declared as pointer to const [constParameterPointer]
+static int32_t ProcessReadDid(EchDiagController_t *controller, uint16_t didId,
+                                                   ^
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_watchdog.c:0:0: warning: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
 
 ^
@@ -314,7 +296,7 @@ int32_t EchDiag_ChangeSession(EchDiagController_t *controller,
 EchDiag_GetCurrentSession(const EchDiagController_t *controller) {
 ^
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:377:9: warning: The function 'EchDiag_ReadDid' should have static linkage since it is not used outside of its translation unit. [staticFunction]
-int32_t EchDiag_ReadDid(EchDiagController_t *controller, uint16_t didId,
+int32_t EchDiag_ReadDid(const EchDiagController_t *controller, uint16_t didId,
         ^
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_diag.c:413:6: warning: The function 'EchDiag_GetDiagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
 void EchDiag_GetDiagnostic(const EchDiagController_t *controller,
@@ -335,7 +317,7 @@ void test_diag_read_did(void) {
 void EchPid_SetEnabled(EchPidController_t *controller, bool enable) {
      ^
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:247:6: warning: The function 'EchPid_GetDiagnostic' should have static linkage since it is not used outside of its translation unit. [staticFunction]
-void EchPid_GetDiagnostic(EchPidController_t *controller,
+void EchPid_GetDiagnostic(const EchPidController_t *controller,
      ^
 /Users/aiagent_master/.openclaw/workspace/ech-ecu/src/services/ech_pid.c:317:6: warning: The function 'test_pid_init' should have static linkage since it is not used outside of its translation unit. [staticFunction]
 void test_pid_init(void) {

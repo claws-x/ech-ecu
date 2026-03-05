@@ -374,7 +374,7 @@ EchDiag_GetCurrentSession(const EchDiagController_t *controller) {
 /**
  * @brief 读取数据标识符 (DID)
  */
-int32_t EchDiag_ReadDid(EchDiagController_t *controller, uint16_t didId,
+int32_t EchDiag_ReadDid(const EchDiagController_t *controller, uint16_t didId,
                         uint8_t *data, uint16_t *dataLength) {
   if (controller == NULL || !controller->initialized || data == NULL ||
       dataLength == NULL) {
@@ -608,7 +608,8 @@ void test_diag_dtc_management(void) {
   EchDiagController_t diag;
   EchDiag_Init(&diag, NULL);
 
-  uint8_t freezeFrame[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+  const uint8_t freezeFrame[8] = {0x01, 0x02, 0x03, 0x04,
+                                  0x05, 0x06, 0x07, 0x08};
   diag.sessionStartTime_ms = 100;
   EchDiag_SetDtc(&diag, ECH_DTC_P0001, freezeFrame);
   printf("  DTC set: P0001, count=%d\n", diag.dtcCount);
@@ -660,7 +661,8 @@ void test_diag_uds_request(void) {
   EchDiag_Init(&diag, NULL);
 
   /* 模拟诊断会话控制请求 */
-  uint8_t request[] = {0x10, 0x01}; /* SID=0x10, SubFunction=Programming */
+  const uint8_t request[] = {0x10,
+                             0x01}; /* SID=0x10, SubFunction=Programming */
   EchDiagResponse_t response;
 
   int32_t result = EchDiag_ProcessRequest(&diag, request, 2, &response, 100);
@@ -670,7 +672,7 @@ void test_diag_uds_request(void) {
   printf("  UDS request 0x10 processed\n");
 
   /* 模拟读取 DID 请求 */
-  uint8_t request2[] = {0x22, 0xF1, 0x00}; /* SID=0x22, DID=0xF100 */
+  const uint8_t request2[] = {0x22, 0xF1, 0x00}; /* SID=0x22, DID=0xF100 */
   result = EchDiag_ProcessRequest(&diag, request2, 3, &response, 200);
   assert(result == 0);
   assert(response.isPositive == true);
@@ -688,7 +690,7 @@ void test_diag_statistics(void) {
   EchDiag_SetDtc(&diag, ECH_DTC_P0001, NULL);
   EchDiag_SetDtc(&diag, ECH_DTC_P0002, NULL);
 
-  uint8_t request[] = {0x10, 0x01};
+  const uint8_t request[] = {0x10, 0x01};
   EchDiagResponse_t response;
   EchDiag_ProcessRequest(&diag, request, 2, &response, 100);
 

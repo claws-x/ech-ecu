@@ -244,7 +244,7 @@ void EchPid_Reset(EchPidController_t *controller) {
 /**
  * @brief 获取 PID 诊断信息
  */
-void EchPid_GetDiagnostic(EchPidController_t *controller,
+void EchPid_GetDiagnostic(const EchPidController_t *controller,
                           EchPidDiagnostic_t *diagnostic) {
   if (controller == NULL || diagnostic == NULL) {
     return;

@@ -463,8 +463,7 @@ static int32_t HardwareSend(const uint8_t *data, uint8_t length) {
  */
 #ifdef LIN_TEST_MODE
 static int32_t HardwareSendWithErrorInjection(const uint8_t *data,
-                                              uint8_t length,
-                                              float errorRate) {
+                                              uint8_t length, float errorRate) {
   (void)data;
   (void)length;
   /* 根据错误率随机返回错误 */
@@ -554,7 +553,7 @@ void test_lin_init(void) {
 
 void test_lin_checksum(void) {
   /* 测试校验和计算 */
-  uint8_t data[] = {0x01, 0x02, 0x03, 0x04};
+  const uint8_t data[] = {0x01, 0x02, 0x03, 0x04};
   uint8_t checksum = EchLin_CalculateChecksum(data, 4, 0x01);
 
   /* 校验和应该是有效的 */
