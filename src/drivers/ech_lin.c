@@ -131,8 +131,8 @@ int32_t EchLin_Init(EchLinController_t *controller,
 
   controller->initialized = true;
 
-  /* 切换到活动状态 */
-  controller->state = ECH_LIN_STATE_ACTIVE;
+  /* 切换到活动状态（状态机转换） */
+  controller->state = ECH_LIN_STATE_ACTIVE; /* 从 INIT 转换到 ACTIVE */
 
   return 0;
 }
@@ -202,7 +202,7 @@ int32_t EchLin_SendFrame(EchLinController_t *controller,
     controller->txFrame = *frame;
     controller->txPending = false;
     controller->frameCount++;
-    controller->lastActivity_ms = result; /* 使用时间戳作为活动标记 */
+    /* lastActivity_ms 在 Schedule 中更新 */
   } else {
     controller->errorCount++;
     controller->errorFrameCount++;
@@ -447,19 +447,37 @@ void EchLin_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
 
 /**
  * @brief 模拟硬件发送
+ * @return 0 表示成功，非 0 表示失败
  */
 static int32_t HardwareSend(const uint8_t *data, uint8_t length) {
   /* 实际项目中替换为真实硬件发送 */
-  /* 这里模拟成功发送 */
+  /* 这里模拟成功发送（始终返回 0） */
   (void)data;
   (void)length;
-  return 0;
+  return 0; /* 模拟成功 */
 }
 
 /**
- * @brief 模拟硬件接收
+ * @brief 模拟硬件发送（带错误注入，用于测试）
+ * @note 仅用于单元测试，生产环境禁用
  */
-static int32_t HardwareReceive(uint8_t *data, uint8_t *length) {
+#ifdef LIN_TEST_MODE
+static int32_t HardwareSendWithErrorInjection(const uint8_t *data,
+                                              uint8_t length,
+                                              float errorRate) {
+  (void)data;
+  (void)length;
+  /* 根据错误率随机返回错误 */
+  return (rand() % 100 < (int)(errorRate * 100)) ? -1 : 0;
+}
+#endif
+
+/**
+ * @brief 模拟硬件接收（预留接口）
+ * @note 当前未使用，保留用于未来 LIN 从机模式实现
+ */
+__attribute__((unused)) static int32_t HardwareReceive(uint8_t *data,
+                                                       uint8_t *length) {
   /* 实际项目中替换为真实硬件接收 */
   /* 这里模拟无数据 */
   (void)data;

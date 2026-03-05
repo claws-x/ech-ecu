@@ -1,10 +1,10 @@
 # ECH 水加热器 ECU 控制系统
 
-**项目版本**: 0.9  
+**项目版本**: 0.9.1  
 **创建日期**: 2026-03-02  
 **ASPICE 目标**: CL2  
-**项目状态**: 单元实现阶段 (100%)  
-**最后更新**: 2026-03-04 20:30
+**项目状态**: 单元实现阶段 (100%) - 代码优化完成  
+**最后更新**: 2026-03-05 09:55
 
 ---
 
@@ -206,7 +206,8 @@ cat docs/process/ASPICE_Gap_Analysis.md
 4. [x] **LIN 驱动** (`src/drivers/ech_lin.c`) ✅ 2026-03-04 12:45 完成
 5. [x] **看门狗服务** (`src/services/ech_watchdog.c`) ✅ 2026-03-04 13:45 完成
 6. [x] **诊断服务** (`src/services/ech_diag.c`) ✅ 2026-03-04 20:00 完成
-7. [ ] 主程序框架 (`src/app/ech_main.c`)
+7. [x] **主程序框架** (`src/app/ech_main.c`) ✅ 2026-03-04 20:30 完成
+8. [x] **温度控制** (`src/app/ech_temp_ctrl.c`) ✅ 2026-03-05 07:30 修复完成
 
 ---
 
@@ -221,6 +222,9 @@ cat docs/process/ASPICE_Gap_Analysis.md
 | 0.5 | 2026-03-04 | AI Assistant | 状态管理模块完成，17 项单元测试通过 |
 | 0.6 | 2026-03-04 | AI Assistant | LIN 驱动模块完成，23 项单元测试通过 |
 | 0.7 | 2026-03-04 | AI Assistant | 看门狗服务完成，29 项单元测试通过 |
+| 0.8 | 2026-03-04 | AI Assistant | 诊断服务完成，主程序框架完成 |
+| 0.9 | 2026-03-05 | AI Assistant | CI/CD 技能创建，GitHub Actions 集成 |
+| 0.9.1 | 2026-03-05 | AI Assistant | 代码优化：编译警告清零，clang-format 格式化 |
 
 ---
 
