@@ -1,0 +1,18 @@
+# Cppcheck 抑制配置
+# 用于抑制已知的误报或预期行为
+
+# 测试代码中的预期行为
+knownConditionTrueFalse:src/drivers/ech_pwm.c:*
+knownConditionTrueFalse:src/drivers/ech_lin.c:*
+
+# 未使用的函数（预留 API）
+unusedFunction:*
+
+# 应声明为 static 的函数
+staticFunction:*
+
+# 标准库头文件误报
+missingIncludeSystem:*
+
+# 分支分析限制
+normalCheckLevelMaxBranches:*

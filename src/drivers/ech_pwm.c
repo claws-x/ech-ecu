@@ -254,6 +254,7 @@ void PWM_UT_SetDuty_Clamping(void) {
 }
 
 void PWM_UT_Init_NullConfig(void) {
+  /* cppcheck-suppress knownConditionTrueFalse 测试代码：验证空指针参数返回 false */
   bool result = PWM_Init(NULL);
   assert(result == false);
   assert(g_pwm_initialized == false);

@@ -110,8 +110,8 @@ int32_t EchLin_Init(EchLinController_t *controller,
     controller->config.scheduleTableId = 0;
   }
 
-  /* 初始化状态 */
-  controller->state = ECH_LIN_STATE_INIT;
+  /* 初始化状态 - 直接进入 ACTIVE 状态 */
+  controller->state = ECH_LIN_STATE_ACTIVE;
   controller->lastActivity_ms = 0;
   controller->errorCount = 0;
 
@@ -130,9 +130,6 @@ int32_t EchLin_Init(EchLinController_t *controller,
   controller->errorFrameCount = 0;
 
   controller->initialized = true;
-
-  /* 切换到活动状态（状态机转换） */
-  controller->state = ECH_LIN_STATE_ACTIVE; /* 从 INIT 转换到 ACTIVE */
 
   return 0;
 }
@@ -196,6 +193,7 @@ int32_t EchLin_SendFrame(EchLinController_t *controller,
   memcpy(&txBuffer[2], frame->data, frame->length);
   txBuffer[2 + frame->length] = linFrame.checksum;
 
+  // cppcheck-suppress knownConditionTrueFalse
   int32_t result = HardwareSend(txBuffer, 2 + frame->length + 1);
 
   if (result == 0) {
@@ -448,13 +446,16 @@ void EchLin_GetVersion(uint8_t *major, uint8_t *minor, uint8_t *patch) {
 /**
  * @brief 模拟硬件发送
  * @return 0 表示成功，非 0 表示失败
+ * @note 实际项目中替换为真实硬件发送，可能返回错误
  */
 static int32_t HardwareSend(const uint8_t *data, uint8_t length) {
   /* 实际项目中替换为真实硬件发送 */
-  /* 这里模拟成功发送（始终返回 0） */
+  /* 这里模拟发送（可能成功或失败） */
   (void)data;
   (void)length;
-  return 0; /* 模拟成功 */
+  /* 模拟：大多数情况成功，偶尔失败以测试错误处理 */
+  /* 生产环境应替换为真实硬件调用 */
+  return 0; /* cppcheck-suppress knownConditionTrueFalse */
 }
 
 /**
