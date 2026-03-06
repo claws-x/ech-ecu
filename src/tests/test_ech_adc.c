@@ -215,28 +215,32 @@ void test_adc_temperature_conversion_0c(void) {
     EchAdcController_t adc;
     EchAdc_Init(&adc);
     
-    /* 0°C 时 NTC 电阻更大，ADC 值更高，约 2700-2900 */
-    adc.rawData[ECH_ADC_CH_TEMP_INLET].rawValue = 2750;
+    /* 0°C 时 NTC 电阻约 33kΩ (10k@25°C, B=3950)
+     * Vout = 3300 * 33k / (10k + 33k) ≈ 2535mV
+     * ADC = 2535 * 4095 / 3300 ≈ 3148 */
+    adc.rawData[ECH_ADC_CH_TEMP_INLET].rawValue = 3100;
     EchAdc_Sample(&adc, 100);
     
     float temp = EchAdc_GetTemperature(&adc, ECH_ADC_CH_TEMP_INLET);
-    /* 放宽范围以适应实际计算 */
-    TEST_ASSERT(temp > -10.0f && temp < 10.0f, 
-                "0°C 附近温度应在合理范围");
+    /* 0°C 附近，允许一定偏差 */
+    TEST_ASSERT(temp > -5.0f && temp < 5.0f, 
+                "0°C 附近温度应在合理范围，实际值=%f", temp);
 }
 
 void test_adc_temperature_conversion_80c(void) {
     EchAdcController_t adc;
     EchAdc_Init(&adc);
     
-    /* 80°C 时 NTC 电阻更小，ADC 值更低，约 600-800 */
-    adc.rawData[ECH_ADC_CH_TEMP_INLET].rawValue = 700;
+    /* 80°C 时 NTC 电阻约 1.5kΩ (10k@25°C, B=3950)
+     * Vout = 3300 * 1.5k / (10k + 1.5k) ≈ 430mV
+     * ADC = 430 * 4095 / 3300 ≈ 534 */
+    adc.rawData[ECH_ADC_CH_TEMP_INLET].rawValue = 550;
     EchAdc_Sample(&adc, 100);
     
     float temp = EchAdc_GetTemperature(&adc, ECH_ADC_CH_TEMP_INLET);
-    /* 放宽范围以适应实际计算 */
-    TEST_ASSERT(temp > 70.0f && temp < 90.0f, 
-                "80°C 附近温度应在合理范围");
+    /* 80°C 附近，允许一定偏差 */
+    TEST_ASSERT(temp > 75.0f && temp < 85.0f, 
+                "80°C 附近温度应在合理范围，实际值=%f", temp);
 }
 
 void test_adc_temperature_invalid_channel(void) {
