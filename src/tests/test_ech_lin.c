@@ -462,8 +462,9 @@ void test_lin_clear_error(void) {
     EchLinController_t lin;
     EchLin_Init(&lin, NULL);
     
+    /* 模拟错误状态 */
     lin.errorCount = 10;
-    lin.lastError = 5;
+    lin.lastError = ECH_LIN_ERROR_CHECKSUM;
     
     EchLin_ClearError(&lin);
     
