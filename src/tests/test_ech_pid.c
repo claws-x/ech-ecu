@@ -277,14 +277,17 @@ void test_pid_deadband_boundary(void) {
     EchPidController_t pid;
     EchPidConfig_t config = {
         .kp = 2.0f, .ki = 0.0f, .kd = 0.0f,
+        .deadband = 0.5f,  /* 明确设置死区值 */
         .setpoint = 50.0f, .enabled = true
     };
     
     EchPid_Init(&pid, &config);
     
-    /* 误差 0.6°C，略超出死区 */
+    /* 误差 0.6°C，略超出死区 (0.5°C) */
     float output = EchPid_Calculate(&pid, 49.4f, 100);
-    TEST_ASSERT(output != 0.0f, "死区外误差应有输出");
+    /* 预期输出 = kp * (error - deadband) = 2.0 * (0.6 - 0.5) = 0.2 */
+    TEST_ASSERT(output > 0.1f && output < 0.3f, 
+                "死区外误差应有输出，实际值=%f", output);
 }
 
 /* ============================================================================
